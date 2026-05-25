@@ -9,9 +9,11 @@ function App() {
   const [sourceType, setSourceType] = useState("sap");
 
   const fetchRecords = () => {
-    axios.get("http://127.0.0.1:8000/api/records/").then((response) => {
-      setRecords(response.data);
-    });
+    axios
+      .get("https://esg-backend-jovj.onrender.com/api/records/")
+      .then((response) => {
+        setRecords(response.data);
+      });
   };
 
   useEffect(() => {
@@ -25,17 +27,21 @@ function App() {
 
     formData.append("source_type", sourceType);
 
-    axios.post("http://127.0.0.1:8000/api/upload/", formData).then(() => {
-      alert("CSV Uploaded Successfully");
+    axios
+      .post("https://esg-backend-jovj.onrender.com/api/upload/", formData)
+      .then(() => {
+        alert("CSV Uploaded Successfully");
 
-      fetchRecords();
-    });
+        fetchRecords();
+      });
   };
 
   const approveRecord = (id) => {
-    axios.patch(`http://127.0.0.1:8000/api/approve/${id}/`).then(() => {
-      fetchRecords();
-    });
+    axios
+      .patch(`https://esg-backend-jovj.onrender.com/api/approve/${id}/`)
+      .then(() => {
+        fetchRecords();
+      });
   };
 
   const getStatusColor = (status) => {
