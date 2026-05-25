@@ -1,15 +1,29 @@
 # ESG Data Ingestion Platform
 
-This project is a small prototype built for the Breathe ESG internship assignment.
-
 The goal was to simulate how ESG-related operational data from different enterprise systems can be ingested, normalized, reviewed, and approved before audit workflows.
 
-The app currently supports:
-- SAP-style fuel data
-- utility electricity data
-- corporate travel data
+The repository includes sample CSV files inside the frontend folder for testing the application:
 
-All three sources are uploaded as CSV files and normalized into a single structure for analyst review.
+* sap.csv
+  → Select source type: SAP
+  → Then upload sap.csv
+
+* utility.csv
+  → Select source type: Utility
+  → Then upload utility.csv
+
+* travel.csv
+  → Select source type: Travel
+  → Then upload travel.csv
+
+Suggested testing flow:
+
+1. Open the deployed frontend application
+2. Select a source type from the dropdown
+3. Upload the corresponding CSV file
+4. Review generated records in the dashboard
+5. Verify suspicious record detection
+6. Test the approve workflow using the Approve button
 
 ---
 
@@ -26,7 +40,7 @@ Backend:
 - Pandas
 
 Database:
-- MySQL
+- SQLite
 
 ---
 
